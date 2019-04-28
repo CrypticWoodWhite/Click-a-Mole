@@ -1,14 +1,15 @@
 import React from "react";
+import Container from "./Container"
 
 const Nav = ({children}) => {
     return (
         <nav class="navbar">
-            <div class="container">
+            <Container>
                 <ul class="navbar-list">
-                {children}
-                {/* scores will go here */}
+                    {children}
+                    {/* scores will go here */}
                 </ul>
-            </div>
+            </Container>
         </nav>
     );
 }

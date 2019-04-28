@@ -1,15 +1,10 @@
 import React from "react";
 
-const Scores = ({currentScore, topScore}) => {
+const Scores = ({ children }) => {
     return (
-        <ul>
-            <li>
-                Current Score: {currentScore}
-            </li>
-            <li>
-                Top Score: {topScore}
-            </li>
-        </ul>
+        <li className="navbar-item">
+            {children}
+        </li>
     );
 }
 
