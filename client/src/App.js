@@ -1,6 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "../public/assets/css/normalize.css";
+import "../public/assets/css/skeleton.css";
+import "../public/assets/css/style.css";
 
 function App() {
   return (
