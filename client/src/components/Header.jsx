@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
     return (
-        <section className="header">Click-a-mole</section>
+        <section className="header"></section>
     );
-  };
+};
   
-  export default Header;
+export default Header;
   

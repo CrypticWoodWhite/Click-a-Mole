@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Container({children}) {
+export function Container({ children }) {
     return(
         <div className="container">
             {children}
@@ -8,20 +8,18 @@ export function Container({children}) {
     );
 };
 
-export function Row({children}) {
+export function Row({ idNumber, children }) {
     return (
-        <section className="row">
+        <section className="row" id={idNumber}>
             {children}
         </section>
     );
 };
 
-export function Column({ size, children }) {
+export function Column({ size, idNumber, children }) {
     return (
-        <section className={{size} + " column"}>
+        <section className={{size} + " column"} id={idNumber}>
             {children}
         </section>
-
     );
-
 };
