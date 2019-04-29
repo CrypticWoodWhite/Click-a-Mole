@@ -6,8 +6,7 @@ export default {
         return axios.get("/api/images");
     },
     // Gets the image with the given id
-    getRandomImage: function(id) {
-        id = (Math.random() * 16) + 1;
+    getOneImage: function(id) {
         return axios.get("/api/images/" + id);
     }
 };

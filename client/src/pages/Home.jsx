@@ -1,32 +1,34 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Header from "../components/Header";
+import Nav from "../components/Nav";
 import Scores from "../components/Scores";
+import Image from "../components/Image";
 import {Container, Row, Column} from "../components/Grid";
 import Footer from "../components/Footer";
 
 class Index extends Component {
 
     state = {
-        // ImgOne: "../../public/assets/img/mole-1.jpg",
-        // ImgTwo: "../../public/assets/img/mole-2.jpg",
-        // ImgThree: "../../public/assets/img/mole-3.jpg",
-        // ImgFour: "../../public/assets/img/mole-4.jpg",
-        // ImgFive: "../../public/assets/img/mole-5.jpg",
-        // ImgSix: "../../public/assets/img/mole-6.jpg",
-        // ImgSeven: "../../public/assets/img/mole-7.jpg",
-        // ImgEight: "../../public/assets/img/mole-8.jpg",
-        // ImgNine: "../../public/assets/img/mole-9.jpg",
-        // ImgTen: "../../public/assets/img/mole-10.jpg",
-        // ImgEleven: "../../public/assets/img/mole-11jpg",
-        // ImgTwelve: "../../public/assets/img/mole-12.jpg",
-        // ImgThirteen: "../../public/assets/img/mole-13.jpg",
-        // ImgFourteen: "../../public/assets/img/mole-14.jpg",
-        // ImgFifteen: "../../public/assets/img/mole-15.jpg",
-        // ImgSixteen: "../../public/assets/img/mole-16.jpg",
-        images: [],
+        ImgOne: "",
+        ImgTwo: "",
+        ImgThree: "",
+        ImgFour: "",
+        ImgFive: "",
+        ImgSix: "",
+        ImgSeven: "",
+        ImgEight: "",
+        ImgNine: "",
+        ImgTen: "",
+        ImgEleven: "",
+        ImgTwelve: "",
+        ImgThirteen: "",
+        ImgFourteen: "",
+        ImgFifteen: "",
+        ImgSixteen: "",
         currentScore: 0,
-        allScores: []
+        allScores: [],
+        topScore: 0
     };
 
     componentDidMount () {
@@ -34,30 +36,66 @@ class Index extends Component {
     }
 
     loadImages = () => {
-        API.loadImages.then(
+        API.loadImages.then(res => {
             this.setState({
-                images: res.data,
+                ImgOne: res.data[0].src,
+                ImgTwo: res.data[1].src,
+                ImgThree: res.data[2].src,
+                ImgFour: res.data[3].src,
+                ImgFive: res.data[4].src,
+                ImgSix: res.data[5].src,
+                ImgSeven: res.data[6].src,
+                ImgEight: res.data[7].src,
+                ImgNine: res.data[8].src,
+                ImgTen: res.data[9].src,
+                ImgEleven: res.data[10].src,
+                ImgTwelve: res.data[11].src,
+                ImgThirteen: res.data[12].src,
+                ImgFourteen: res.data[13].src,
+                ImgFifteen: res.data[14].src,
+                ImgSixteen: res.data[15].src,
                 currentScore: 0,
-                allScores: []
+                allScores: [],
+                topScore: 0
             })
-        ).catch(
-            err => console.log(err);
+        }).catch(
+            err => console.log(err)
         )
     };
 
-    getRandomImage = (id) => {
-        API.getRandomImage(id).then(
+    // getRandomImage = () => {
 
-        );
-    };
+    //     let imgArr = [];
+    //     let randomId = Math.random() * 15;
+
+    //     if (imgArr.length < 16) {
+    //         if (imgArr.includes(randomId)) {
+    //             randomId = Math.random() * 15;
+    //         } else {
+    //             imgArr.push(randomId);
+    //         }
+    //     } else {
+    //         imgArr = [];
+    //     };
+
+    //     API.getOneImage(randomId);
+    // };
 
     handleClick = event => {
         event.preventDefault();
 
-    };
+        let clickedImgArr = [];
+        let clickedImg = event.target.value;
+        let currentScore = this.state.currentScore;
 
-    topScore = Score => {
-
+        if (clickedImgArr.length < 16) {
+            if (!clickedImgArr.includes(clickedImg)) {
+                clickedImgArr.push(clickedImg);
+                currentScore++;
+            } else {
+                alert("You already clicked that mole!");
+            };
+        };
     };
 
     ////
@@ -68,15 +106,15 @@ class Index extends Component {
 
                 <Header>
                     <h1>Click-a-Mole</h1>
-                    <h5>This is the memory game version of Whack-a-Mole! The moles get shuffled around after each click. Try to not click on the same mole twice. Click on a mole to get started!</h5>
+                    <h5>This is the memory game version of Whack-a-Mole. The moles get shuffled around after each click. Try to not click on the same mole twice. Click a mole to get started!</h5>
                 </Header>
 
                 <Nav>
                     <Scores>
-                        Current Score:
+                        Current Score: {this.state.currentScore};
                     </Scores>
                     <Scores>
-                        Top Score: 
+                        Top Score: {this.state.topScore};
                     </Scores>
                 </Nav>
 
@@ -85,25 +123,25 @@ class Index extends Component {
                     <Column idNumber="col-one">
                         <Image
                             id="img-one"
-                            href={this.state.ImgOne}
+                            src={this.state.ImgOne}
                         />
                     </Column>
                     <Column idNumber="col-two">
                         <Image
                             id="img-two"
-                            href={this.state.ImgTwo}
+                            src={this.state.ImgTwo}
                         />           
                     </Column>
                     <Column idNumber="col-three">
                         <Image
                             id="img-three"
-                            href={this.state.ImgThree}
+                            src={this.state.ImgThree}
                         />
                     </Column>
                     <Column idNumber="col-four">
                         <Image
                             id="img-four"
-                            href={this.state.ImgFour}
+                            src={this.state.ImgFour}
                         />
                     </Column>
                     
@@ -114,25 +152,25 @@ class Index extends Component {
                     <Column idNumber="col-five">
                         <Image
                             id="img-five"
-                            href={this.state.ImgFive}
+                            src={this.state.ImgFive}
                         />
                     </Column>
                     <Column idNumber="col-six">
                         <Image
                             id="img-six"
-                            href={this.state.ImgSix}
+                            src={this.state.ImgSix}
                         />           
                     </Column>
                     <Column idNumber="col-seven">
                         <Image
                             id="img-seven"
-                            href={this.state.ImgSeven}
+                            src={this.state.ImgSeven}
                         />
                     </Column>
                     <Column idNumber="col-eight">
                         <Image
                             id="img-eight"
-                            href={this.state.ImgEight}
+                            src={this.state.ImgEight}
                         />
                     </Column>
                     
@@ -143,25 +181,25 @@ class Index extends Component {
                     <Column idNumber="col-nine">
                         <Image
                             id="img-nine"
-                            href={this.state.ImgNine}
+                            src={this.state.ImgNine}
                         />
                     </Column>
                     <Column idNumber="col-ten">
                         <Image
                             id="img-ten"
-                            href={this.state.ImgTen}
+                            src={this.state.ImgTen}
                         />           
                     </Column>
                     <Column idNumber="col-eleven">
                         <Image
                             id="img-eleven"
-                            href={this.state.ImgEleven}
+                            src={this.state.ImgEleven}
                         />
                     </Column>
                     <Column idNumber="col-twelve">
                         <Image
                             id="img-twelve"
-                            href={this.state.ImgTwelve}
+                            src={this.state.ImgTwelve}
                         />
                     </Column>
                     
@@ -172,25 +210,25 @@ class Index extends Component {
                     <Column idNumber="col-thirteen">
                         <Image
                             id="img-thirteen"
-                            href={this.state.ImgThirteen}
+                            src={this.state.ImgThirteen}
                         />
                     </Column>
                     <Column idNumber="col-fourteen">
                         <Image
                             id="img-fourteen"
-                            href={this.state.ImgFourteen}
+                            src={this.state.ImgFourteen}
                         />           
                     </Column>
                     <Column idNumber="col-fifteen">
                         <Image
                             id="img-fifteen"
-                            href={this.state.ImgFifteen}
+                            src={this.state.ImgFifteen}
                         />
                     </Column>
                     <Column idNumber="col-sixteen">
                         <Image
                             id="img-sixteen"
-                            href={this.state.ImgSixteen}
+                            src={this.state.ImgSixteen}
                         />
                     </Column>
 

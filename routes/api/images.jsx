@@ -8,6 +8,6 @@ router.route("/")
 // Matches with "/api/images/:id"
 router
   .route("/:id")
-  .get(booksController.findById)
+  .get(imageController.findById)
 
 module.exports = router;

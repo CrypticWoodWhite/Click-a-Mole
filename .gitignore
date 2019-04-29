@@ -3,7 +3,6 @@ desktop.ini
 node_modules
 .DS_Store
 .env
-desktop.ini
 archive
 
 # dependencies
