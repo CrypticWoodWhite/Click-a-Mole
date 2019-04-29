@@ -1,5 +1,3 @@
-import React from "react";
-
 export const mole1 = require("./mole-1.jpg");
 export const mole2 = require("./mole-2.jpg");
 export const mole3 = require("./mole-3.jpg");

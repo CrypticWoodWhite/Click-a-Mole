@@ -35,83 +35,65 @@ class Index extends Component {
         this.loadImages();
     }
 
-    loadImages = () => {
-        this.setState({
-            // ImgOne: Data[0],
-            // ImgTwo: Data[1],
-            // ImgThree: Data[2],
-            // ImgFour: Data[3],
-            // ImgFive: Data[4],
-            // ImgSix: Data[5],
-            // ImgSeven: Data[6],
-            // ImgEight: Data[7],
-            // ImgNine: Data[8],
-            // ImgTen: Data[9],
-            // ImgEleven: Data[10],
-            // ImgTwelve: Data[11],
-            // ImgThirteen: Data[12],
-            // ImgFourteen: Data[13],
-            // ImgFifteen: Data[14],
-            // ImgSixteen: Data[15],
-            currentScore: 0,
-            allScores: [],
-            topScore: 0
-        })
-    };
-
-    randomize = (imgArray) => {
-        let i = imgArray.length,
+    randomize = (array) => {
+        let i = array.length,
             j = 0,
             temp;
     
-        while (i--) {
+        while (i > 0) {
             j = Math.floor(Math.random() * (i+1));
+            i--
             // swap randomly chosen element with current element
-            temp = imgArray[i];
-            imgArray[i] = imgArray[j];
-            imgArray[j] = temp;
-            return imgArray;
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         };
 
         this.setState({
-            ImgOne: imgArray[0],
-            ImgTwo: imgArray[1],
-            ImgThree: imgArray[2],
-            ImgFour: imgArray[3],
-            ImgFive: imgArray[4],
-            ImgSix: imgArray[5],
-            ImgSeven: imgArray[6],
-            ImgEight: imgArray[7],
-            ImgNine: imgArray[8],
-            ImgTen: imgArray[9],
-            ImgEleven: imgArray[10],
-            ImgTwelve: imgArray[11],
-            ImgThirteen: imgArray[12],
-            ImgFourteen: imgArray[13],
-            ImgFifteen: imgArray[14],
-            ImgSixteen: imgArray[15]
+            ImgOne: array[0],
+            ImgTwo: array[1],
+            ImgThree: array[2],
+            ImgFour: array[3],
+            ImgFive: array[4],
+            ImgSix: array[5],
+            ImgSeven: array[6],
+            ImgEight: array[7],
+            ImgNine: array[8],
+            ImgTen: array[9],
+            ImgEleven: array[10],
+            ImgTwelve: array[11],
+            ImgThirteen: array[12],
+            ImgFourteen: array[13],
+            ImgFifteen: array[14],
+            ImgSixteen: array[15]
         });
+    };
+
+    loadImages = () => {
+        let imgArray = [mole1, mole2, mole3, mole4, mole5, mole6, mole7, mole8, mole9, mole10, mole11, mole12, mole13, mole14, mole15, mole16];
+        this.randomize(imgArray);
     };
 
     handleClick = event => {
         event.preventDefault();
 
         console.log("click!");
+        console.log(event.target.value);
 
-        // let imgArr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+        // let imgArray = [mole1, mole2, mole3, mole4, mole5, mole6, mole7, mole8, mole9, mole10, mole11, mole12, mole13, mole14, mole15, mole16];
 
-        let clickedImgArr = [],
-            clickedImg = event.target.value,
-            currentScore = this.state.currentScore;
+        // let clickedImgArr = [],
+        //     clickedImg = event.target.value,
+        //     currentScore = this.state.currentScore;
 
         // if (clickedImgArr.length < 16) {
         //     if (!clickedImgArr.includes(clickedImg)) {
         //         clickedImgArr.push(clickedImg);
         //         currentScore++;
-        //         this.randomize(imgArr);
+        //         this.randomize(imgArray);
         //     } else {
         //         alert("You already clicked that mole!");
-        //         this.randomize(imgArr);
+        //         this.randomize(imgArray);
         //     };
         // };
     };
@@ -141,32 +123,28 @@ class Index extends Component {
 
                     <Column idNumber="col-one">
                         <Image
-                            key={this.state.ImgOne.id}
-                            src={mole1}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgOne}
+                            onClick={this.handleClick}
                         />
                     </Column>
                     <Column idNumber="col-two">
                         <Image
-                            key={this.state.ImgTwo.id}
-                            src={mole2}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgTwo}
+                            onClick={this.handleClick}
 
                         />           
                     </Column>
                     <Column idNumber="col-three">
                         <Image
-                            key={this.state.ImgThree.id}
-                            src={mole3}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgThree}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-four">
                         <Image
-                            key={this.state.ImgFour.id}
-                            src={mole4}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgFour}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
@@ -177,33 +155,29 @@ class Index extends Component {
 
                     <Column idNumber="col-five">
                         <Image
-                            key={this.state.ImgFive.id}
-                            src={mole5}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgFive}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-six">
                         <Image
-                            key={this.state.ImgSix.id}
-                            src={mole6}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgSix}
+                            onClick={this.handleClick}
 
                         />           
                     </Column>
                     <Column idNumber="col-seven">
                         <Image
-                            key={this.state.ImgSeven.id}
-                            src={mole7}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgSeven}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-eight">
                         <Image
-                            key={this.state.ImgEight.id}
-                            src={mole8}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgEight}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
@@ -214,33 +188,29 @@ class Index extends Component {
 
                     <Column idNumber="col-nine">
                         <Image
-                            key={this.state.ImgNine.id}
-                            src={mole9}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgNine}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-ten">
                         <Image
-                            key={this.state.ImgTen.id}
-                            src={mole10}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgTen}
+                            onClick={this.handleClick}
 
                         />           
                     </Column>
                     <Column idNumber="col-eleven">
                         <Image
-                            key={this.state.ImgEleven.id}
-                            src={mole11}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgEleven}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-twelve">
                         <Image
-                            key={this.state.ImgTwelve.id}
-                            src={mole12}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgTwelve}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
@@ -251,33 +221,29 @@ class Index extends Component {
 
                     <Column idNumber="col-thirteen">
                         <Image
-                            key={this.state.ImgThirteen.id}
-                            src={mole13}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgThirteen}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-fourteen">
                         <Image
-                            key={this.state.ImgFourteen.id}
-                            src={mole14}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgFourteen}
+                            onClick={this.handleClick}
 
                         />           
                     </Column>
                     <Column idNumber="col-fifteen">
                         <Image
-                            key={this.state.ImgFifteen.id}
-                            src={mole15}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgFifteen}
+                            onClick={this.handleClick}
 
                         />
                     </Column>
                     <Column idNumber="col-sixteen">
                         <Image
-                            key={this.state.ImgSixteen.id}
-                            src={mole16}
-                            onClick={() => this.handleClick}
+                            src={this.state.ImgSixteen}
+                            onClick={this.handleClick}
                         />
                     </Column>
 
