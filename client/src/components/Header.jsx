@@ -1,8 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = ( {children} ) => {
     return (
-        <section className="header"></section>
+        <section className="header">
+            {children}
+        </section>
     );
 };
   

@@ -1,8 +1,8 @@
 import React from "react";
-import "../public/assets/css/normalize.css";
-import "../public/assets/css/skeleton.css";
-import "../public/assets/css/style.css";
-import Home from "../src/Home";
+// import "../css/normalize.css";
+// import "../css/skeleton.css";
+// import "../css/style.css";
+import Home from "../src/pages/Home";
 
 function App() {
   return ( <Home /> );

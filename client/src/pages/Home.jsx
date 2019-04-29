@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import API from "../utils/API";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Scores from "../components/Scores";
 import Image from "../components/Image";
 import {Container, Row, Column} from "../components/Grid";
 import Footer from "../components/Footer";
+import Data from "../Data";
 
 class Index extends Component {
 
@@ -36,53 +36,67 @@ class Index extends Component {
     }
 
     loadImages = () => {
-        API.loadImages.then(res => {
-            this.setState({
-                ImgOne: res.data[0].src,
-                ImgTwo: res.data[1].src,
-                ImgThree: res.data[2].src,
-                ImgFour: res.data[3].src,
-                ImgFive: res.data[4].src,
-                ImgSix: res.data[5].src,
-                ImgSeven: res.data[6].src,
-                ImgEight: res.data[7].src,
-                ImgNine: res.data[8].src,
-                ImgTen: res.data[9].src,
-                ImgEleven: res.data[10].src,
-                ImgTwelve: res.data[11].src,
-                ImgThirteen: res.data[12].src,
-                ImgFourteen: res.data[13].src,
-                ImgFifteen: res.data[14].src,
-                ImgSixteen: res.data[15].src,
-                currentScore: 0,
-                allScores: [],
-                topScore: 0
-            })
-        }).catch(
-            err => console.log(err)
-        )
+        this.setState({
+            ImgOne: Data[0],
+            ImgTwo: Data[1],
+            ImgThree: Data[2],
+            ImgFour: Data[3],
+            ImgFive: Data[4],
+            ImgSix: Data[5],
+            ImgSeven: Data[6],
+            ImgEight: Data[7],
+            ImgNine: Data[8],
+            ImgTen: Data[9],
+            ImgEleven: Data[10],
+            ImgTwelve: Data[11],
+            ImgThirteen: Data[12],
+            ImgFourteen: Data[13],
+            ImgFifteen: Data[14],
+            ImgSixteen: Data[15],
+            currentScore: 0,
+            allScores: [],
+            topScore: 0
+        })
     };
 
-    // getRandomImage = () => {
+    randomize = () => {
 
-    //     let imgArr = [];
-    //     let randomId = Math.random() * 15;
+        let imgArr = [];
+        let randomId = Math.random() * 15;
 
-    //     if (imgArr.length < 16) {
-    //         if (imgArr.includes(randomId)) {
-    //             randomId = Math.random() * 15;
-    //         } else {
-    //             imgArr.push(randomId);
-    //         }
-    //     } else {
-    //         imgArr = [];
-    //     };
+        while (imgArr.length < 16) {
+            if (imgArr.includes(randomId)) {
+                randomId = Math.random() * 15;
+            } else {
+                imgArr.push(randomId);
+            }
+        };
 
-    //     API.getOneImage(randomId);
-    // };
+        this.setState({
+            ImgOne: Data[imgArr[0]],
+            ImgTwo: Data[imgArr[1]],
+            ImgThree: Data[imgArr[2]],
+            ImgFour: Data[imgArr[3]],
+            ImgFive: Data[imgArr[4]],
+            ImgSix: Data[imgArr[5]],
+            ImgSeven: Data[imgArr[6]],
+            ImgEight: Data[imgArr[7]],
+            ImgNine: Data[imgArr[8]],
+            ImgTen: Data[imgArr[9]],
+            ImgEleven: Data[imgArr[10]],
+            ImgTwelve: Data[imgArr[11]],
+            ImgThirteen: Data[imgArr[12]],
+            ImgFourteen: Data[imgArr[13]],
+            ImgFifteen: Data[imgArr[14]],
+            ImgSixteen: Data[imgArr[15]],
+        })
+
+    };
 
     handleClick = event => {
         event.preventDefault();
+
+        console.log("click!");
 
         let clickedImgArr = [];
         let clickedImg = event.target.value;
@@ -92,8 +106,10 @@ class Index extends Component {
             if (!clickedImgArr.includes(clickedImg)) {
                 clickedImgArr.push(clickedImg);
                 currentScore++;
+                this.randomize();
             } else {
                 alert("You already clicked that mole!");
+                this.randomize();
             };
         };
     };
@@ -105,16 +121,16 @@ class Index extends Component {
             <Container>
 
                 <Header>
-                    <h1>Click-a-Mole</h1>
+                    <h1 className="title">Click-a-Mole</h1>
                     <h5>This is the memory game version of Whack-a-Mole. The moles get shuffled around after each click. Try to not click on the same mole twice. Click a mole to get started!</h5>
                 </Header>
 
                 <Nav>
                     <Scores>
-                        Current Score: {this.state.currentScore};
+                        Current Score: {this.state.currentScore}
                     </Scores>
                     <Scores>
-                        Top Score: {this.state.topScore};
+                        Top Score: {this.state.topScore}
                     </Scores>
                 </Nav>
 
@@ -122,26 +138,33 @@ class Index extends Component {
 
                     <Column idNumber="col-one">
                         <Image
-                            id="img-one"
-                            src={this.state.ImgOne}
+                            key={this.state.ImgOne.id}
+                            src={this.state.ImgOne.src}
+                            onClick={() => this.handleClick}
                         />
                     </Column>
                     <Column idNumber="col-two">
                         <Image
-                            id="img-two"
-                            src={this.state.ImgTwo}
+                            key={this.state.ImgTwo.id}
+                            src={this.state.ImgTwo.src}
+                            onClick={() => this.handleClick}
+
                         />           
                     </Column>
                     <Column idNumber="col-three">
                         <Image
-                            id="img-three"
-                            src={this.state.ImgThree}
+                            key={this.state.ImgThree.id}
+                            src={this.state.ImgThree.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-four">
                         <Image
-                            id="img-four"
-                            src={this.state.ImgFour}
+                            key={this.state.ImgFour.id}
+                            src={this.state.ImgFour.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     
@@ -151,26 +174,34 @@ class Index extends Component {
 
                     <Column idNumber="col-five">
                         <Image
-                            id="img-five"
-                            src={this.state.ImgFive}
+                            key={this.state.ImgFive.id}
+                            src={this.state.ImgFive.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-six">
                         <Image
-                            id="img-six"
-                            src={this.state.ImgSix}
+                            key={this.state.ImgSix.id}
+                            src={this.state.ImgSix.src}
+                            onClick={() => this.handleClick}
+
                         />           
                     </Column>
                     <Column idNumber="col-seven">
                         <Image
-                            id="img-seven"
-                            src={this.state.ImgSeven}
+                            key={this.state.ImgSeven.id}
+                            src={this.state.ImgSeven.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-eight">
                         <Image
-                            id="img-eight"
-                            src={this.state.ImgEight}
+                            key={this.state.ImgEight.id}
+                            src={this.state.ImgEight.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     
@@ -180,26 +211,34 @@ class Index extends Component {
 
                     <Column idNumber="col-nine">
                         <Image
-                            id="img-nine"
-                            src={this.state.ImgNine}
+                            key={this.state.ImgNine.id}
+                            src={this.state.ImgNine.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-ten">
                         <Image
-                            id="img-ten"
-                            src={this.state.ImgTen}
+                            key={this.state.ImgTen.id}
+                            src={this.state.ImgTen.src}
+                            onClick={() => this.handleClick}
+
                         />           
                     </Column>
                     <Column idNumber="col-eleven">
                         <Image
-                            id="img-eleven"
-                            src={this.state.ImgEleven}
+                            key={this.state.ImgEleven.id}
+                            src={this.state.ImgEleven.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-twelve">
                         <Image
-                            id="img-twelve"
-                            src={this.state.ImgTwelve}
+                            key={this.state.ImgTwelve.id}
+                            src={this.state.ImgTwelve.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     
@@ -209,26 +248,33 @@ class Index extends Component {
 
                     <Column idNumber="col-thirteen">
                         <Image
-                            id="img-thirteen"
-                            src={this.state.ImgThirteen}
+                            key={this.state.ImgThirteen.id}
+                            src={this.state.ImgThirteen.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-fourteen">
                         <Image
-                            id="img-fourteen"
-                            src={this.state.ImgFourteen}
+                            key={this.state.ImgFourteen.id}
+                            src={this.state.ImgFourteen.src}
+                            onClick={() => this.handleClick}
+
                         />           
                     </Column>
                     <Column idNumber="col-fifteen">
                         <Image
-                            id="img-fifteen"
-                            src={this.state.ImgFifteen}
+                            key={this.state.ImgFifteen.id}
+                            src={this.state.ImgFifteen.src}
+                            onClick={() => this.handleClick}
+
                         />
                     </Column>
                     <Column idNumber="col-sixteen">
                         <Image
-                            id="img-sixteen"
-                            src={this.state.ImgSixteen}
+                            key={this.state.ImgSixteen.id}
+                            src={this.state.ImgSixteen.src}
+                            onClick={() => this.handleClick}
                         />
                     </Column>
 

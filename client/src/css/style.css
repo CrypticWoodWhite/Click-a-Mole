@@ -10,6 +10,7 @@ body {
 }
 
 .header {
+    /* padding-top: 6rem; */
     text-align: center;
     vertical-align: bottom;
     width: 100%;
@@ -22,8 +23,16 @@ body {
 }
 
 .title {
-    padding-top: 1rem;
     text-shadow: 0px 0px 6px white;
+    padding-top: 6rem;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 ul {
@@ -41,13 +50,39 @@ ul {
 img {
     max-height: 250px;
     max-width: 250px;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #eee;
+    margin: 2px;
+    border: 1px solid black;
 }
 
-.row {
-    text-align: center;
+.dialog-form,
+.ui-dialog-titlebar {
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+}
+
+.dialog-form {
+    padding: 1rem 2rem 0rem 2rem;
+}
+
+.ui-dialog-titlebar {
+    font-weight: bold;
+    padding: 2rem;
+}
+
+.ui-button {
+    padding: 0 1rem;
+    margin: 0.5rem;
+    display: inline-flex;
+    right: 2rem;
+    top: 1rem;
+    bottom: 1rem;
+    position: absolute;
+}
+
+input,
+textarea {
+    width: 100%;
 }
 
 /* nav bar, other skeleton stuff, and media queries below */
@@ -175,7 +210,7 @@ img {
         max-height: 495px;
     }
     .title {
-        padding-top: 3rem;
+        padding-top: 18rem;
     }
     .value-props {
         margin-top: 9rem;
@@ -208,7 +243,7 @@ img {
 @media (min-width: 750px) {
     /* Navbar */
     .title {
-        padding-top: 6rem;
+        padding-top: 24rem;
     }
     .navbar + .docs-section {
         border-top-width: 0;
@@ -217,12 +252,11 @@ img {
     .navbar-spacer {
         display: block;
         width: 100%;
-        height: 7rem;
+        height: 6.5rem;
         background: #fff;
         z-index: 99;
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
-        margin-bottom: 2rem;
     }
     .navbar-spacer {
         display: none;
@@ -236,9 +270,8 @@ img {
     }
     .navbar-item {
         position: relative;
-        /* float: left; */
-        text-align: center;
-        margin: 0.5rem;
+        float: left;
+        margin-bottom: 0;
     }
     .navbar-link {
         text-transform: uppercase;
