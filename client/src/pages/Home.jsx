@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Path from "path";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Scores from "../components/Scores";
@@ -128,7 +127,7 @@ class Index extends Component {
 
                 <Header>
                     <h1 className="title">Click-a-Mole</h1>
-                    <h5>This is the memory game version of Whack-a-Mole. The moles get shuffled around after each click. Try to not click on the same mole twice. Click a mole to get started!</h5>
+                    <h5>This is the memory game version of Whack-a-Mole. The moles get shuffled around after each click. Try to not click on the same mole twice. The highest score possible is 16. Click a mole to get started!</h5>
                 </Header>
 
                 <Nav>
