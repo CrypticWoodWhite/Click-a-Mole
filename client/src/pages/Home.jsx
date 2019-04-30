@@ -67,8 +67,7 @@ class Index extends Component {
             ImgThirteen: array[12],
             ImgFourteen: array[13],
             ImgFifteen: array[14],
-            ImgSixteen: array[15],
-            currentScore: 0
+            ImgSixteen: array[15]
         });
     };
 
@@ -76,18 +75,6 @@ class Index extends Component {
         let imgArray = [mole1, mole2, mole3, mole4, mole5, mole6, mole7, mole8, mole9, mole10, mole11, mole12, mole13, mole14, mole15, mole16];
         this.randomize(imgArray);
     };
-
-    // this doesn't help me with onclick
-    // constructor (props) {
-    //     super(props);
-    //     this.handleImgClick = this.handleImgClick.bind(this);
-    // };
-
-    // id from file path so can identify image clicked
-    // createImgId = (filename) => {
-    //     return Path.parse(filename).name;
-        // return filename.replace(/^.*(\\|\/|\:)/, ""); // this version uses regex to replace unwanted characters with empty
-    // };
 
     handleImgClick = event => {
         event.preventDefault();
@@ -101,16 +88,20 @@ class Index extends Component {
         let allScores = this.state.allScores;
 
         if (clickedImgArr.length < 16) {
+
             if (clickedImgArr.includes(clickedImg)) {
                 alert("You already clicked that mole! Starting over");
+                clickedImgArr.length = 0;
+                currentScore = 0;
                 this.randomize(imgArray);
                 allScores.push(this.state.currentScore);
+
             } else {
                 clickedImgArr.push(clickedImg);
                 currentScore++;
-                console.log(clickedImgArr);
                 this.randomize(imgArray);
             };
+
         } else if (clickedImgArr.length === 16) {
             alert("You're the ultimate winner! You got the best score possible! Let's see if you can do it again!");
             clickedImgArr.length = 0;
