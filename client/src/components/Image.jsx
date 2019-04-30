@@ -1,8 +1,8 @@
 import React from "react";
 
-const Image = ({ src, idNumber }) => {
+const Image = ({ src, idString }) => {
     return (
-        <img alt="mole" src={src} key={idNumber} />
+        <img alt="mole" src={src} id={idString} />
     );
 };
 
