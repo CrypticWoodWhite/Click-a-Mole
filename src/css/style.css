@@ -42,8 +42,8 @@ ul {
 }
 
 img {
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 150px;
+    max-width: 150px;
     margin: 2px;
     border: 1px solid #eee;
 }
