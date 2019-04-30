@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/Click-a-Mole/static/css/main.46a6bd84.chunk.css",
+    "main.js": "/Click-a-Mole/static/js/main.2147288e.chunk.js",
+    "main.js.map": "/Click-a-Mole/static/js/main.2147288e.chunk.js.map",
+    "runtime~main.js": "/Click-a-Mole/static/js/runtime~main.48c61519.js",
+    "runtime~main.js.map": "/Click-a-Mole/static/js/runtime~main.48c61519.js.map",
+    "static/js/2.6efc73d3.chunk.js": "/Click-a-Mole/static/js/2.6efc73d3.chunk.js",
+    "static/js/2.6efc73d3.chunk.js.map": "/Click-a-Mole/static/js/2.6efc73d3.chunk.js.map",
+    "index.html": "/Click-a-Mole/index.html",
+    "precache-manifest.8fd6f8311d540d8d822713c0803933c9.js": "/Click-a-Mole/precache-manifest.8fd6f8311d540d8d822713c0803933c9.js",
+    "service-worker.js": "/Click-a-Mole/service-worker.js",
+    "static/css/main.46a6bd84.chunk.css.map": "/Click-a-Mole/static/css/main.46a6bd84.chunk.css.map",
+    "static/media/mole-1.jpg": "/Click-a-Mole/static/media/mole-1.0a36e10c.jpg",
+    "static/media/mole-10.jpg": "/Click-a-Mole/static/media/mole-10.fc4afc12.jpg",
+    "static/media/mole-11.jpg": "/Click-a-Mole/static/media/mole-11.74728ed9.jpg",
+    "static/media/mole-12.jpg": "/Click-a-Mole/static/media/mole-12.5cebce0c.jpg",
+    "static/media/mole-13.jpg": "/Click-a-Mole/static/media/mole-13.4ac65410.jpg",
+    "static/media/mole-14.jpg": "/Click-a-Mole/static/media/mole-14.59b961aa.jpg",
+    "static/media/mole-15.jpg": "/Click-a-Mole/static/media/mole-15.b70d7e44.jpg",
+    "static/media/mole-16.jpg": "/Click-a-Mole/static/media/mole-16.cf3b9433.jpg",
+    "static/media/mole-2.jpg": "/Click-a-Mole/static/media/mole-2.a43d3d4b.jpg",
+    "static/media/mole-3.jpg": "/Click-a-Mole/static/media/mole-3.ba63146c.jpg",
+    "static/media/mole-4.jpg": "/Click-a-Mole/static/media/mole-4.0935351b.jpg",
+    "static/media/mole-5.jpg": "/Click-a-Mole/static/media/mole-5.f1320b91.jpg",
+    "static/media/mole-6.jpg": "/Click-a-Mole/static/media/mole-6.6b915c47.jpg",
+    "static/media/mole-7.jpg": "/Click-a-Mole/static/media/mole-7.2e0bea89.jpg",
+    "static/media/mole-8.jpg": "/Click-a-Mole/static/media/mole-8.4be5161b.jpg",
+    "static/media/mole-9.jpg": "/Click-a-Mole/static/media/mole-9.275a09e5.jpg",
+    "static/media/molebackground.png": "/Click-a-Mole/static/media/molebackground.70ea9c10.png"
+  }
+}
