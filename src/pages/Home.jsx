@@ -28,7 +28,7 @@ class Index extends Component {
         ImgSixteen: "",
         clickedImgArr: [],
         currentScore: 0,
-        allScores: [], // hmmmm might want to put scores in a db
+        allScores: [],
         topScore: 0
     };
 
